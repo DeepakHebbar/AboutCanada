@@ -82,15 +82,20 @@
             if (currObject.title) {
                 cell.titleLabel.text = currObject.title;
                 cell.descLabel.text = currObject.rowsDescription;
+                cell.imageLoadingIndicator.hidden = YES;
                 if (currObject.imageData == nil) {
                     cell.rowImageView.image = nil;
                     cell.rowImageView.hidden = YES;
+                    cell.imageLoadingIndicator.hidden = NO;
+                    [cell.imageLoadingIndicator startAnimating];
                     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                         NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:currObject.imageHref]];
                         if (imageData) {
                             dispatch_async(dispatch_get_main_queue(), ^{
                                 ACCityInfoTableViewCell *updateCell = (id)[tableView cellForRowAtIndexPath:indexPath];
                                 if (updateCell) {
+                                    [cell.imageLoadingIndicator stopAnimating];
+                                    cell.imageLoadingIndicator.hidden = YES;
                                     currObject.imageData = imageData;
                                     cell.rowImageView.hidden = NO;
                                     cell.rowImageView.image = [UIImage imageWithData:currObject.imageData];
@@ -103,6 +108,8 @@
                         }
                     });
                 }else{
+                    [cell.imageLoadingIndicator stopAnimating];
+                    cell.imageLoadingIndicator.hidden = YES;
                     cell.rowImageView.hidden = NO;
                     cell.rowImageView.image = [UIImage imageWithData:currObject.imageData];
                 }

@@ -41,19 +41,29 @@
                                                 <constraint firstAttribute="width" constant="80" id="iVZ-lm-nfp"/>
                                             </constraints>
                                         </imageView>
+                                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="5hO-O8-XK2">
+                                            <rect key="frame" x="237" y="45" width="20" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="20" id="cXR-59-fvs"/>
+                                                <constraint firstAttribute="height" constant="20" id="eNE-9V-EF0"/>
+                                            </constraints>
+                                        </activityIndicatorView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="m9R-1R-Wal" firstAttribute="leading" secondItem="MBh-fp-byt" secondAttribute="leading" constant="10" id="0Bu-bz-sCG"/>
+                                        <constraint firstAttribute="trailing" secondItem="5hO-O8-XK2" secondAttribute="trailing" constant="30" id="4EB-vR-hpb"/>
                                         <constraint firstAttribute="bottom" secondItem="eri-Bs-xIf" secondAttribute="bottom" constant="2.5" id="EM1-hW-UH3"/>
                                         <constraint firstItem="m9R-1R-Wal" firstAttribute="top" secondItem="MBh-fp-byt" secondAttribute="top" constant="5" id="bgt-uG-Jwe"/>
                                         <constraint firstItem="eri-Bs-xIf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="lJ8-kh-gw3" secondAttribute="trailing" constant="7" id="d4w-cy-9ow"/>
                                         <constraint firstAttribute="bottom" secondItem="lJ8-kh-gw3" secondAttribute="bottom" constant="7.5" id="e1h-yG-xCw"/>
                                         <constraint firstItem="lJ8-kh-gw3" firstAttribute="leading" secondItem="MBh-fp-byt" secondAttribute="leading" constant="10" id="fc0-6h-gYa"/>
+                                        <constraint firstAttribute="bottom" secondItem="5hO-O8-XK2" secondAttribute="bottom" constant="14.5" id="iet-L4-llj"/>
                                         <constraint firstAttribute="trailing" secondItem="eri-Bs-xIf" secondAttribute="trailing" id="sFK-Nd-Kqu"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="descLabel" destination="lJ8-kh-gw3" id="tDK-lh-Knm"/>
+                                    <outlet property="imageLoadingIndicator" destination="5hO-O8-XK2" id="I7M-EV-AA5"/>
                                     <outlet property="rowImageView" destination="eri-Bs-xIf" id="Bi4-pi-5Cy"/>
                                     <outlet property="titleLabel" destination="m9R-1R-Wal" id="D4v-3i-rVj"/>
                                 </connections>

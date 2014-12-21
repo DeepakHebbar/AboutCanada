@@ -10,4 +10,8 @@
 
 @implementation ACCityInfoTableViewCell
 
+- (void)dealloc {
+    [_imageLoadingIndicator release];
+    [super dealloc];
+}
 @end
