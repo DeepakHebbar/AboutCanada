@@ -58,25 +58,34 @@
                                     <outlet property="titleLabel" destination="m9R-1R-Wal" id="D4v-3i-rVj"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="infoCellNoImage" rowHeight="60" id="MSX-4c-JdV">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="infoCellNoImage" rowHeight="55" id="MSX-4c-JdV">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MSX-4c-JdV" id="PfF-LY-yIa">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m3W-c8-9tV">
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m3W-c8-9tV">
                                             <rect key="frame" x="10" y="5" width="270" height="21"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.32443136830000002" blue="0.679983428" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="11" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" fixedFrame="YES" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lDB-KF-ag3">
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="11" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lDB-KF-ag3">
                                             <rect key="frame" x="10" y="31" width="275" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="m3W-c8-9tV" firstAttribute="top" secondItem="PfF-LY-yIa" secondAttribute="top" constant="5" id="M9Z-kb-9mX"/>
+                                        <constraint firstItem="lDB-KF-ag3" firstAttribute="top" secondItem="m3W-c8-9tV" secondAttribute="bottom" constant="5" id="PyM-ZA-nQc"/>
+                                        <constraint firstAttribute="trailing" secondItem="m3W-c8-9tV" secondAttribute="trailing" constant="7" id="UXy-lK-I0W"/>
+                                        <constraint firstItem="m3W-c8-9tV" firstAttribute="leading" secondItem="PfF-LY-yIa" secondAttribute="leading" constant="10" id="WC8-bb-nwv"/>
+                                        <constraint firstItem="lDB-KF-ag3" firstAttribute="leading" secondItem="PfF-LY-yIa" secondAttribute="leading" constant="10" id="WM9-Ld-5X6"/>
+                                        <constraint firstAttribute="bottom" secondItem="lDB-KF-ag3" secondAttribute="bottom" constant="6.5" id="XmE-c7-Ojx"/>
+                                        <constraint firstAttribute="trailing" secondItem="lDB-KF-ag3" secondAttribute="trailing" constant="2" id="cYQ-IG-Nh2"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>

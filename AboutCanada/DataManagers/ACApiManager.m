@@ -29,6 +29,7 @@
 
 - (void)loadApiDataAndUpdateTheTableViewWithCompletionHandler:(ACApiResponseHandler)completion{
     _dataRowsArray = [NSMutableArray new];
+   
     NSURL *apiURL = [NSURL URLWithString:API_URL];
     NSMutableURLRequest *urlRequest = [[NSMutableURLRequest alloc]initWithURL:apiURL];
     NSURLResponse *urlResponse;
@@ -36,9 +37,9 @@
     NSData *apiData = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&urlResponse error:&error];
     [urlRequest release];
     NSString *responseDataStr = [[NSString alloc] initWithData:apiData encoding:NSASCIIStringEncoding];
-    NSLog(@"resp: %@",responseDataStr);
     NSData *jsonData = [responseDataStr dataUsingEncoding:NSUTF8StringEncoding];
     [responseDataStr release];
+    
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
     NSArray *dataRows = json[@"rows"];
     [dataRows enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {

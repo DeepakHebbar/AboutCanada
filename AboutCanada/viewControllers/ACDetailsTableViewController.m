@@ -11,6 +11,11 @@
 #import "ACCityInfoTableViewCell.h"
 #import "ACCityInfo.h"
 
+#define TITLE_FONT [UIFont fontWithName:@"HelveticaNeue-Bold" size:17.0f]
+#define DESCRIPTION_FONT [UIFont fontWithName:@"HelveticaNeue" size:14.0f]
+#define MESSAGE_LABEL_FONT [UIFont fontWithName:@"Palatino-Italic" size:20]
+#define CELL_PADDING 40.f
+
 @interface ACDetailsTableViewController ()
 @property (retain, nonatomic) NSArray *dataArray;
 @property (retain, nonatomic) IBOutlet UITableView *cityInfoTableView;
@@ -34,14 +39,14 @@
     if (self.dataArray.count>0) {
         return 1;
     }else{
+        //Display message to ask user to pull down and refresh data
         UILabel *messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
         messageLabel.text = @"Please pull down to refresh.";
         messageLabel.textColor = [UIColor blackColor];
         messageLabel.numberOfLines = 0;
         messageLabel.textAlignment = NSTextAlignmentCenter;
-        messageLabel.font = [UIFont fontWithName:@"Palatino-Italic" size:20];
+        messageLabel.font = MESSAGE_LABEL_FONT;
         [messageLabel sizeToFit];
-        
         self.cityInfoTableView.backgroundView = messageLabel;
         self.cityInfoTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         [messageLabel release];
@@ -124,20 +129,20 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     ACCityInfo *currObject = _dataArray[indexPath.row];
     
-    NSDictionary *titleFontDictionary = [[NSDictionary alloc]initWithObjectsAndKeys:[UIFont fontWithName:@"HelveticaNeue-Bold" size:17.0f],NSFontAttributeName, nil];
-    NSDictionary *descFontDictionary = [[NSDictionary alloc]initWithObjectsAndKeys:[UIFont fontWithName:@"HelveticaNeue" size:14.0f],NSFontAttributeName, nil];
+    NSDictionary *titleFontDictionary = [[NSDictionary alloc]initWithObjectsAndKeys:TITLE_FONT,NSFontAttributeName, nil];
+    NSDictionary *descFontDictionary = [[NSDictionary alloc]initWithObjectsAndKeys:DESCRIPTION_FONT,NSFontAttributeName, nil];
     
     CGFloat titleHeight = [currObject.title boundingRectWithSize:CGSizeMake(tableView.bounds.size.width, tableView.bounds.size.height) options:NSStringDrawingTruncatesLastVisibleLine|NSStringDrawingUsesLineFragmentOrigin attributes:titleFontDictionary context:nil].size.height;
     [titleFontDictionary release];
     if (currObject.imageHref.length>0) {
         CGFloat descHeight = [currObject.rowsDescription boundingRectWithSize:CGSizeMake(190.f, tableView.bounds.size.height) options:NSStringDrawingTruncatesLastVisibleLine|NSStringDrawingUsesLineFragmentOrigin attributes:descFontDictionary context:nil].size.height;
         [descFontDictionary release];
-        CGFloat cellHeight = (titleHeight+descHeight)>70.f?(titleHeight+descHeight):(descHeight+40.f);
+        CGFloat cellHeight = (titleHeight+descHeight)>70.f?(titleHeight+descHeight):(descHeight+CELL_PADDING);
         return cellHeight;
     }else{
-        CGFloat descHeight = [currObject.rowsDescription boundingRectWithSize:CGSizeMake(tableView.bounds.size.width, tableView.bounds.size.height) options:NSStringDrawingTruncatesLastVisibleLine|NSStringDrawingUsesLineFragmentOrigin attributes:descFontDictionary context:nil].size.height;
+        CGFloat descHeight = [currObject.rowsDescription boundingRectWithSize:CGSizeMake(tableView.bounds.size.width-33.f, tableView.bounds.size.height) options:NSStringDrawingTruncatesLastVisibleLine|NSStringDrawingUsesLineFragmentOrigin attributes:descFontDictionary context:nil].size.height;
         [descFontDictionary release];
-        CGFloat cellHeight = (titleHeight+descHeight)>60.f?(titleHeight+descHeight):(descHeight+40.f);
+        CGFloat cellHeight = (titleHeight+descHeight)>60.f?(titleHeight+descHeight):(descHeight+CELL_PADDING+10.f);
         return cellHeight;
     }
 }
