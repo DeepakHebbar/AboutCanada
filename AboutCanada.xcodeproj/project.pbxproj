@@ -15,6 +15,7 @@
 		6A31F25C1A466FF200C0CCBD /* AboutCanadaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A31F25B1A466FF200C0CCBD /* AboutCanadaTests.m */; };
 		6A31F2681A46721100C0CCBD /* ACDetailsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A31F2671A46721100C0CCBD /* ACDetailsTableViewController.m */; };
 		6A31F26C1A46740500C0CCBD /* ACApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A31F26B1A46740500C0CCBD /* ACApiManager.m */; };
+		6A31F2701A4677BC00C0CCBD /* ACCityInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A31F26F1A4677BC00C0CCBD /* ACCityInfo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 		6A31F2671A46721100C0CCBD /* ACDetailsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ACDetailsTableViewController.m; path = viewControllers/ACDetailsTableViewController.m; sourceTree = "<group>"; };
 		6A31F26A1A46740500C0CCBD /* ACApiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ACApiManager.h; path = DataManagers/ACApiManager.h; sourceTree = "<group>"; };
 		6A31F26B1A46740500C0CCBD /* ACApiManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ACApiManager.m; path = DataManagers/ACApiManager.m; sourceTree = "<group>"; };
+		6A31F26E1A4677BC00C0CCBD /* ACCityInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ACCityInfo.h; path = Model/ACCityInfo.h; sourceTree = "<group>"; };
+		6A31F26F1A4677BC00C0CCBD /* ACCityInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ACCityInfo.m; path = Model/ACCityInfo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +87,7 @@
 		6A31F23E1A466FF200C0CCBD /* AboutCanada */ = {
 			isa = PBXGroup;
 			children = (
+				6A31F26D1A4676D400C0CCBD /* Models */,
 				6A31F2691A4672D600C0CCBD /* DataMangers */,
 				6A31F2651A4671AE00C0CCBD /* ViewControllers */,
 				6A31F2431A466FF200C0CCBD /* AppDelegate.h */,
@@ -138,6 +142,15 @@
 				6A31F26B1A46740500C0CCBD /* ACApiManager.m */,
 			);
 			name = DataMangers;
+			sourceTree = "<group>";
+		};
+		6A31F26D1A4676D400C0CCBD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6A31F26E1A4677BC00C0CCBD /* ACCityInfo.h */,
+				6A31F26F1A4677BC00C0CCBD /* ACCityInfo.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,6 +253,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A31F2701A4677BC00C0CCBD /* ACCityInfo.m in Sources */,
 				6A31F2451A466FF200C0CCBD /* AppDelegate.m in Sources */,
 				6A31F2681A46721100C0CCBD /* ACDetailsTableViewController.m in Sources */,
 				6A31F26C1A46740500C0CCBD /* ACApiManager.m in Sources */,

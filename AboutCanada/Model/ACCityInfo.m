@@ -1,0 +1,13 @@
+//
+//  ACCityInfo.m
+//  AboutCanada
+//
+//  Created by Deepak Kumar on 21/12/14.
+//  Copyright (c) 2014 Deepak Kumar. All rights reserved.
+//
+
+#import "ACCityInfo.h"
+
+@implementation ACCityInfo
+
+@end
