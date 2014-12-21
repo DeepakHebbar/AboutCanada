@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  ACDetailsTableViewController.h
 //  AboutCanada
 //
 //  Created by Deepak Kumar on 21/12/14.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface ACDetailsTableViewController : UITableViewController
 
 @end
-
