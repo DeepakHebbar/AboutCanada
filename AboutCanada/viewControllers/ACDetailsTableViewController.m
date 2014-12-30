@@ -135,23 +135,21 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     ACCityInfo *currObject = _dataArray[indexPath.row];
-    
-    NSDictionary *titleFontDictionary = [[NSDictionary alloc]initWithObjectsAndKeys:TITLE_FONT,NSFontAttributeName, nil];
-    NSDictionary *descFontDictionary = [[NSDictionary alloc]initWithObjectsAndKeys:DESCRIPTION_FONT,NSFontAttributeName, nil];
-    
-    CGFloat titleHeight = [currObject.title boundingRectWithSize:CGSizeMake(tableView.bounds.size.width, tableView.bounds.size.height) options:NSStringDrawingTruncatesLastVisibleLine|NSStringDrawingUsesLineFragmentOrigin attributes:titleFontDictionary context:nil].size.height;
-    [titleFontDictionary release];
+    UITextView *calculationView = [[UITextView alloc] init];
+    [calculationView setFont:DESCRIPTION_FONT];
+    [calculationView setTextAlignment:NSTextAlignmentLeft];
+    [calculationView setText:currObject.rowsDescription];
+    CGSize size;
     if (currObject.imageHref.length>0) {
-        CGFloat descHeight = [currObject.rowsDescription boundingRectWithSize:CGSizeMake(190.f, tableView.bounds.size.height) options:NSStringDrawingTruncatesLastVisibleLine|NSStringDrawingUsesLineFragmentOrigin attributes:descFontDictionary context:nil].size.height;
-        [descFontDictionary release];
-        CGFloat cellHeight = (titleHeight+descHeight)>70.f?(titleHeight+descHeight):(descHeight+CELL_PADDING);
-        return cellHeight;
+        size = [calculationView sizeThatFits:CGSizeMake(tableView.bounds.size.width-43.f-87.f, FLT_MAX)];//43 for accessory view plus 10x,87 is of imageview width
+        if (size.height<50.f) {//to prioritize imageview height
+            size.height = 55.f;
+        }
     }else{
-        CGFloat descHeight = [currObject.rowsDescription boundingRectWithSize:CGSizeMake(tableView.bounds.size.width-33.f, tableView.bounds.size.height) options:NSStringDrawingTruncatesLastVisibleLine|NSStringDrawingUsesLineFragmentOrigin attributes:descFontDictionary context:nil].size.height;
-        [descFontDictionary release];
-        CGFloat cellHeight = (titleHeight+descHeight)>60.f?(titleHeight+descHeight):(descHeight+CELL_PADDING+10.f);
-        return cellHeight;
+        size = [calculationView sizeThatFits:CGSizeMake(tableView.bounds.size.width-43.f, FLT_MAX)];//43 for accessoryview plus 10x
     }
+    [calculationView release];
+    return size.height+25.f;//25 is height for title label
 }
 
 - (void)dealloc {
